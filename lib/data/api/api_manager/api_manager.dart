@@ -38,5 +38,18 @@ class ApiManager{
     return articlesResponse;
 
   }
+
+  static Future<ArticlesResponse>searchArticle(String query)async{
+    Uri url =Uri.http(_baseUrl,_articlesEndPoint,{
+      'apiKey' : _apiKey,
+      'q': query,
+    });
+    http.Response serverResponse =await http.get(url);
+    Map<String,dynamic> json=jsonDecode(serverResponse.body);
+    ArticlesResponse articlesResponse =ArticlesResponse.fromJson(json);
+    return articlesResponse;
+
+  }
+
 }
 // jsonEncode(object) convert from json to strong

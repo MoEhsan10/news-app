@@ -4,9 +4,10 @@ import 'package:news_app/core/utils/assets_manager.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/data_model/categories_DM.dart';
 import 'package:news_app/presentation/screens/home/home_Drawer/home_drawer.dart';
-import 'package:news_app/presentation/screens/home/tabs/categories/categories.dart';
-import 'package:news_app/presentation/screens/home/tabs/categories/category_deetails/category_details.dart';
+import 'package:news_app/presentation/screens/home/tabs/categories/view/categories.dart';
+import 'package:news_app/presentation/screens/home/tabs/categories/category_deetails/view/category_details.dart';
 import 'package:news_app/presentation/screens/home/tabs/settings/settings.dart';
+import 'package:news_app/presentation/screens/news_search_delegate/news_search_delegate.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -36,6 +37,11 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(appBarTitle,style: AppStyles.appBar,),
+          actions: [
+            IconButton(onPressed: () {
+              showSearch(context: context,delegate: NewsSearchDelegate(), );
+            }, icon: Icon(Icons.search,size: 30,))
+          ],
           centerTitle: true,
         ),
         drawer: HomeDrawer(onMenuItemClicked: onMenuItemClicked,),
@@ -59,7 +65,7 @@ class _HomeState extends State<Home> {
   // }
 
 void OnCategoryClicked(CategoryDM categoryDM){
-    selectedWidget=CategoryDetails(categoryDM: categoryDM);
+    selectedWidget=CategoryDetails(categoryDM: categoryDM,);
     appBarTitle=categoryDM.title;
     setState(() {
 
@@ -80,4 +86,5 @@ void onMenuItemClicked(MenuItem item){
 
     });
 }
+
 }
