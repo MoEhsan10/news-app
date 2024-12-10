@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
           title: Text(appBarTitle,style: AppStyles.appBar,),
           actions: [
             IconButton(onPressed: () {
-              showSearch(context: context,delegate: NewsSearchDelegate(), );
+              // showSearch(context: context,delegate: NewsSearchDelegate(), );
             }, icon: Icon(Icons.search,size: 30,))
           ],
           centerTitle: true,

@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/data_model/categories_DM.dart';
 import 'package:news_app/presentation/screens/home/home.dart';
-import 'package:news_app/presentation/screens/home/tabs/articles_list_widget/aritcle_details/articles_details.dart';
-import 'package:news_app/presentation/screens/home/tabs/categories/category_deetails/view/category_details.dart';
+import 'package:news_app/presentation/screens/home/tabs/articles/aritcle_details/articles_details.dart';
 import 'package:news_app/presentation/screens/splash/splash.dart';
 
 class RoutesManager{

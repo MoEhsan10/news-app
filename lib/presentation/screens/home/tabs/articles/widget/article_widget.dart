@@ -6,11 +6,12 @@ import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/utils/routes_manager.dart';
 import 'package:news_app/data/api/model/news_response/article.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:news_app/domain/entities/article_entity.dart';
 
-class ArticleItemWidget extends StatelessWidget {
-  ArticleItemWidget({super.key, required this.article});
+class ArticleWidget extends StatelessWidget {
+  ArticleWidget({super.key, required this.article});
 
-  Article article;
+  ArticleEntity article;
 
   @override
   Widget build(BuildContext context) {

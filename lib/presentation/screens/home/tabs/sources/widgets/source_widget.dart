@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/config/theme/app_styles.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/data/api/model/sources_response/sources.dart';
+import 'package:news_app/domain/entities/source_entity.dart';
 
-class SourceItemWidget extends StatelessWidget {
-  SourceItemWidget({super.key, required this.source, required this.isSelected});
-  final Source source;
+class SourceWidget extends StatelessWidget {
+  SourceWidget({super.key, required this.source, required this.isSelected});
+  final SourceEntity source;
   final bool isSelected;
 
   @override

@@ -1,5 +1,6 @@
-
 import 'package:news_app/data/api/model/sources_response/sources.dart';
+import 'package:news_app/domain/entities/article_entity.dart';
+
 
 class Article {
   Article({
@@ -33,26 +34,26 @@ class Article {
   String? publishedAt;
   String? content;
 
-  Article copyWith({
-    Source? source,
-    String? author,
-    String? title,
-    String? description,
-    String? url,
-    String? urlToImage,
-    String? publishedAt,
-    String? content,
-  }) =>
-      Article(
-        source: source ?? this.source,
-        author: author ?? this.author,
-        title: title ?? this.title,
-        description: description ?? this.description,
-        url: url ?? this.url,
-        urlToImage: urlToImage ?? this.urlToImage,
-        publishedAt: publishedAt ?? this.publishedAt,
-        content: content ?? this.content,
-      );
+  // Article copyWith({
+  //   Source? source,
+  //   String? author,
+  //   String? title,
+  //   String? description,
+  //   String? url,
+  //   String? urlToImage,
+  //   String? publishedAt,
+  //   String? content,
+  // }) =>
+  //     Article(
+  //       source: source ?? this.source,
+  //       author: author ?? this.author,
+  //       title: title ?? this.title,
+  //       description: description ?? this.description,
+  //       url: url ?? this.url,
+  //       urlToImage: urlToImage ?? this.urlToImage,
+  //       publishedAt: publishedAt ?? this.publishedAt,
+  //       content: content ?? this.content,
+  //     );
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -67,5 +68,17 @@ class Article {
     map['publishedAt'] = publishedAt;
     map['content'] = content;
     return map;
+  }
+
+  ArticleEntity toArticleEntity(){
+    return ArticleEntity(
+      title: title,
+      content: content,
+      description: description,
+      publishedAt: publishedAt,
+      source: source?.toSourceEntity(),
+      url: url,
+      urlToImage:urlToImage,
+    );
   }
 }
